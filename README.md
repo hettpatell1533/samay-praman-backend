@@ -97,3 +97,18 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+### Sample README.md is given below, copy-paste into your code and set value according to yours.
+
+```javascript
+PROJECT=
+PORT=
+DB_HOST=
+DB_PORT=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+JWT_SECRET=
+ACCESS_TOKEN_SECRET=
+REFRESH_TOKEN_SECRET=
+```
