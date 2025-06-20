@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    image: nestjs-mysql-boilerplate
+    command: sh -c "npm run start:dev"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8000"
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=Rlogical@2025
+      - DB_DATABASE=corporate_management
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - app-network
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Rlogical@2025
+      MYSQL_PASSWORD: Rlogical@2025
+      MYSQL_DATABASE: corporate_management
+    ports:
+      - '3307:3306'
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
